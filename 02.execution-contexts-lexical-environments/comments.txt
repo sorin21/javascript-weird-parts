@@ -1,0 +1,36 @@
+1. SYNTAX PARSER
+  - a program that reads your code and determines what is does and if its grammar is valid
+  - Compiler = is a program that converts Javascript into computer instructions, that computer can understand
+
+2. LEXICAL ENVIRONMENT
+  - where something sits phisically in the code you write
+  - if we have 
+  function hello() {
+    var a = 'hello'
+  }
+  the variable a sits lexically inside function
+
+3. EXECUTUION CONTEXT
+  - a wrapper to help manage the code that is running
+  - when Javascript code is executed, an Execution Context is created and gives you 
+  a global obj window and a special variable called 'this', that is the same with window obj
+
+  - Execution Context is created in 2 phases:
+  a) Creation Phase = in this phase we have global obj window and the variable this, that are set up in memory
+      and the parser reads your code and set up the memory space for variables and functions
+  b) Execution Phase = where execute the code line by line and where the assigments are set var first = 'something'
+
+  Hoisting = when JS engine sets up the memory for console.log(first) it doesn't know what its value will be until gets
+    to the line where first is defined, so instead puts a placeholder called UNDEFINED. This placeholder means that it 
+    doesn't know what the value is yet.
+
+    All variables in JS are initially set to UNDEFINED.
+  
+  NOT DEFINED = if we have console.log(first) and we don't declare first below, at the Execution Phase first is not 
+    set up in the memory. So when the code is executed, at Execution Phase, and gets to console.log(first) sees that 
+    first is not in memory at all. So give Uncaugth RefercenceError: first is not defined. It's not in memory, that's 
+    what the JS inside the Browser want to say.
+  
+  UNDEFINED = when we declare a variable first; in the Creation Phase is placed in the memory and because doesn't have a value, 
+    JS will put this special value called UNDEFINED. 
+    In the Execution Phase will see variable first and will finds that this variable has a special value called UNDEFINED.
